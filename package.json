@@ -19,7 +19,7 @@
   "homepage": "https://www.pingzoapp.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sumitnnath78-beep/pingzoapp"
+    "url": "https://github.com/sumitnnath78-beep/pingzo-node-sdk.git"
   },
   "bugs": {
     "url": "https://www.pingzoapp.com/contact"
