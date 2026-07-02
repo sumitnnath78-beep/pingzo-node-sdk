@@ -1,0 +1,27 @@
+{
+  "name": "@pingzoapp/sdk",
+  "version": "0.0.3",
+  "description": "Official SDK for Pingzo — uptime monitoring, status pages, and instant WhatsApp alerts for developers.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "uptime",
+    "monitoring",
+    "status-page",
+    "whatsapp-alerts",
+    "website-monitoring",
+    "api-monitoring",
+    "heartbeat",
+    "pingzo"
+  ],
+  "author": "Sumit Nath <sumitn@pingzoapp.com>",
+  "license": "MIT",
+  "homepage": "https://www.pingzoapp.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sumitnnath78-beep/pingzoapp"
+  },
+  "bugs": {
+    "url": "https://www.pingzoapp.com/contact"
+  }
+}
