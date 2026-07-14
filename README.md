@@ -1,32 +1,66 @@
-﻿# Pingzo
+# Pingzo Node.js SDK
 
-Official Node.js SDK for [Pingzo](https://www.pingzoapp.com) - uptime monitoring, public status pages, and instant WhatsApp alerts for developers and SaaS teams.
+Official lightweight Node.js SDK for [Pingzo](https://www.pingzoapp.com) - uptime monitoring, public status pages, and instant WhatsApp alerts.
 
-## Full SDK Coming Soon
+## Features
 
-We are actively building the Pingzo SDK. Planned features:
+- **Heartbeat Checks**: Verify that background workers, cron jobs, and queues complete execution on time.
+- **Express.js Middleware**: Expose structured `/healthz` endpoints that automatically report server and database connectivity states.
+- **Zero Dependencies**: Exceptionally fast load times with no external dependency layers.
 
-- **Heartbeat monitoring** - verify cron jobs and background workers ran successfully
-- **Custom event push** - notify Pingzo from inside your deployment pipeline
-- **Metric ingestion** - push response times, queue depths, and custom metrics
-- **Instant WhatsApp alerts** - get notified on your phone the second something fails
+## Installation
 
-## Get Started Today
+```bash
+npm install @pingzoapp/sdk
+```
 
-You do not need the SDK to start monitoring. Add your first monitor in 60 seconds:
+## Quick Start
 
-[Start Free at pingzoapp.com](https://www.pingzoapp.com)
+### 1. Sending Cron Heartbeats
+Initialize the client and send a ping notification at the end of key background routines:
 
-## Stay Updated
+```javascript
+const Pingzo = require('@pingzoapp/sdk');
+const pingzo = new Pingzo('your_project_api_key');
 
-Star this package to get notified when the SDK launches.
+async function processDailyInvoices() {
+  try {
+    // Your routine execution logic...
+    console.log('Invoices processed successfully.');
+    
+    // Notify Pingzo that the task completed on schedule
+    pingzo.ping('invoice-cron-monitor-id');
+  } catch (err) {
+    console.error('Invoice run failed:', err.message);
+  }
+}
+```
 
-## Links
+### 2. Express.js Health Check Route
+Register the middleware inside your web server configuration to handle automated uptime checks:
 
-- [Website](https://www.pingzoapp.com)
-- [Pricing](https://www.pingzoapp.com/pricing)
-- [Status Directory](https://www.pingzoapp.com/is-it-down)
+```javascript
+const express = require('express');
+const Pingzo = require('@pingzoapp/sdk');
+
+const app = express();
+const pingzo = new Pingzo('your_project_api_key');
+
+// Expose a health endpoint checking database connectivity
+app.use(pingzo.expressMiddleware({
+  path: '/healthz',
+  customCheck: async () => {
+    // Perform database pool query check here
+    // Return true if healthy, false if unhealthy
+    return true;
+  }
+}));
+
+app.listen(3000, () => {
+  console.log('Express app running on port 3000');
+});
+```
 
 ## License
 
-MIT - Aurexis Technologies Private Limited - https://www.pingzoapp.com
+MIT - Aurexis Technologies Private Limited. See [LICENSE](LICENSE) for details.

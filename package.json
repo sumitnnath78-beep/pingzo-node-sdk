@@ -1,27 +1,29 @@
 {
   "name": "@pingzoapp/sdk",
-  "version": "0.0.3",
-  "description": "Official SDK for Pingzo — uptime monitoring, status pages, and instant WhatsApp alerts for developers.",
+  "version": "1.0.0",
+  "description": "Official Node.js SDK for Pingzo - uptime monitoring, health checks, and heartbeat pings.",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [
-    "uptime",
-    "monitoring",
-    "status-page",
-    "whatsapp-alerts",
-    "website-monitoring",
-    "api-monitoring",
-    "heartbeat",
-    "pingzo"
-  ],
-  "author": "Sumit Nath <sumitn@pingzoapp.com>",
-  "license": "MIT",
-  "homepage": "https://www.pingzoapp.com",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sumitnnath78-beep/pingzo-node-sdk.git"
+    "url": "git+https://github.com/sumitnnath78-beep/pingzo-node-sdk.git"
   },
+  "keywords": [
+    "pingzo",
+    "uptime",
+    "monitoring",
+    "heartbeat",
+    "cron-monitor",
+    "health-check",
+    "express-middleware",
+    "whatsapp-alerts"
+  ],
+  "author": "Aurexis Technologies Private Limited",
+  "license": "MIT",
   "bugs": {
-    "url": "https://www.pingzoapp.com/contact"
-  }
+    "url": "https://github.com/sumitnnath78-beep/pingzo-node-sdk/issues"
+  },
+  "homepage": "https://github.com/sumitnnath78-beep/pingzo-node-sdk#readme"
 }
